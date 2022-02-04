@@ -48,6 +48,8 @@ namespace MyBlazorServer
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseWebSockets();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
