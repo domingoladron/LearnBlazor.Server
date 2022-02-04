@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyBlazorServer.Configuration;
 using MyBlazorServer.Data;
 
 namespace MyBlazorServer
@@ -29,6 +30,7 @@ namespace MyBlazorServer
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +49,8 @@ namespace MyBlazorServer
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseWebSockets();
 
             app.UseRouting();
 
