@@ -1,0 +1,35 @@
+﻿@page "/trackmyvisit"
+
+<h1>Track My Visit</h1>
+
+<p>Let's track if I've been here before or not</p>
+@if(iAmTracked)
+{
+    <h2>I'm Tracked!</h2>
+} else
+{
+    <h2>I'm Not Tracked!</h2>
+}
+
+<button class="btn btn-primary" @onclick="TrackMe">@TrackButtonText</button>
+
+@code {
+    bool iAmTracked = false;
+    private int currentCount = 0;
+    private string TrackButtonText = "Track My Visit";
+
+
+
+    private void TrackMe()
+    {
+        if (!iAmTracked)
+        {
+            TrackButtonText = "Stop Tracking me!";
+           
+            iAmTracked = true;
+        } else {
+            TrackButtonText = "Track My Visit";
+            iAmTracked = false;
+        }
+    }
+}
