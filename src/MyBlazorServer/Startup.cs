@@ -31,6 +31,9 @@ namespace MyBlazorServer
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddHttpContextAccessor();
+
+            services.AddScoped<StateContainer>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
